@@ -7,6 +7,9 @@ local highlights = require "custom.highlights"
 M.ui = {
   theme = "vscode_dark",
   theme_toggle = { "vscode_dark", "one_light" },
+  nvdash = {
+    load_on_startup = true,
+  },
 
   hl_override = highlights.override,
   hl_add = highlights.add,

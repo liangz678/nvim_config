@@ -4,7 +4,7 @@ M.treesitter = {
   ensure_installed = {
     "vim",
     "lua",
-    "html",
+    -- "html",
     "css",
     "javascript",
     "c",
@@ -14,7 +14,16 @@ M.treesitter = {
   indent = {
     enable = true,
     disable = {
-      "python"
+      "python",
+    },
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<CR>",
+      node_incremental = "<CR>",
+      node_decremental = "<BS>",
+      scope_incremental = "<TAB>",
     },
   },
 }
@@ -46,6 +55,13 @@ M.nvimtree = {
         git = true,
       },
     },
+  },
+}
+
+--nvterm change to pwsh
+M.nvterm = {
+  terminals = {
+    shell = "pwsh.exe",
   },
 }
 
