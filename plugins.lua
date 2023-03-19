@@ -99,12 +99,35 @@ local plugins = {
 
   {
     "gelguy/wilder.nvim",
-    lazy = true,
+    lazy = false,
     event = "CmdlineEnter",
+    dependencies = {
+      "romgrk/fzy-lua-native",
+    },
     config = function()
-      require("wilder").setup {
-        modes = { ":", "/", "?" },
-      }
+      local wilder = require "wilder"
+      wilder.setup { modes = { ":", "/", "?" } }
+
+      wilder.set_option("use_python_remote_plugin", 0)
+      wilder.set_option("pipeline", {
+        wilder.branch(
+          wilder.cmdline_pipeline { use_python = 0, fuzzy = 1, fuzzy_filter = wilder.lua_fzy_filter() },
+          wilder.vim_search_pipeline(),
+          {
+            wilder.check(function(_, x)
+              return x == ""
+            end),
+            wilder.history(),
+          }
+        ),
+      })
+
+      wilder.set_option(
+        "renderer",
+        wilder.wildmenu_renderer {
+          highlighter = wilder.basic_highlighter(),
+        }
+      )
     end,
   },
 
@@ -113,22 +136,7 @@ local plugins = {
     lazy = false,
     branch = "v2", -- optional but strongly recommended
     config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
       require("hop").setup { keys = "etovxqpdygfblzhckisuran" }
-      local hop = require "hop"
-      local directions = require("hop.hint").HintDirection
-      vim.keymap.set("", "f", function()
-        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
-      end, { remap = true })
-      vim.keymap.set("", "F", function()
-        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
-      end, { remap = true })
-      vim.keymap.set("", "t", function()
-        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
-      end, { remap = true })
-      vim.keymap.set("", "T", function()
-        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
-      end, { remap = true })
     end,
   },
 
