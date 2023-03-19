@@ -2,6 +2,16 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
+  -- 自动切换输入法
+  {
+    "brglng/vim-im-select" , lazy = false,
+    config = function()
+      vim.g.im_select_command = "D:\\tools\\im-select.exe"
+      vim.g.im_select_default = "1033"
+      vim.g.im_select_enable_focus_events = 0
+		end,
+  },
+
 
   -- Override plugin definition options
 
@@ -21,7 +31,6 @@ local plugins = {
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
-  
   -- override plugin configs
   {
     "williamboman/mason.nvim",
