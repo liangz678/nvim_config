@@ -10,6 +10,7 @@ vim.g.loaded_python3_provider = 1
 vim.g.python_host_prog = "C:/ProgramData/Anaconda3/python.exe"
 vim.g.python3_host_prog = "C:/ProgramData/Anaconda3/python3.exe"
 
+
 local enable_providers = {
   "python3_provider",
   "node_provider",
