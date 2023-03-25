@@ -4,12 +4,15 @@ M.treesitter = {
   ensure_installed = {
     "vim",
     "lua",
-    -- "html",
+    "html",
     "css",
     "javascript",
     "c",
+    "cpp",
+    "rust",
     "markdown",
     "markdown_inline",
+    "dart",
   },
   indent = {
     enable = true,
@@ -39,6 +42,9 @@ M.mason = {
     "html-lsp",
     "typescript-language-server",
     "deno",
+    "clangd",
+    "pyright",
+    "codelldb",
   },
 }
 

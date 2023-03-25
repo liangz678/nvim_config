@@ -7,8 +7,8 @@
 -- })
 --
 vim.g.loaded_python3_provider = 1
-vim.g.python_host_prog = "C:/ProgramData/Anaconda3/python.exe"
-vim.g.python3_host_prog = "C:/ProgramData/Anaconda3/python3.exe"
+vim.g.python_host_prog = "C:/ProgramData/miniconda3/envs/neovim/python.exe"
+vim.g.python3_host_prog = "C:/ProgramData/miniconda3/envs/neovim/python.exe"
 
 
 local enable_providers = {
@@ -21,3 +21,7 @@ for _, plugin in pairs(enable_providers) do
   vim.g["loaded_" .. plugin] = nil
   vim.cmd("runtime " .. plugin)
 end
+
+vim.wo.relativenumber = true
+
+
