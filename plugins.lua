@@ -140,6 +140,43 @@ local plugins = {
     end,
   },
 
+  {
+    "codota/tabnine-nvim",
+    lazy = false,
+    build = "pwsh.exe -file .\\dl_binaries.ps1",
+    config = function()
+      require("tabnine").setup {
+        disable_auto_comment = true,
+        accept_keymap = "<Tab>",
+        dismiss_keymap = "<C-]>",
+        debounce_ms = 800,
+        suggestion_color = { gui = "#808080", cterm = 244 },
+        exclude_filetypes = { "TelescopePrompt" },
+      }
+    end,
+  },
+
+  {
+    "p00f/clangd_extensions.nvim",
+    lazy = false,
+    config = function()
+      require "custom.configs.clangd_extensions"
+    end,
+  },
+
+  {
+    "akinsho/flutter-tools.nvim",
+    init = require("core.utils").load_mappings "flutter",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+    },
+    config = function()
+      require "custom.configs.flutter"
+    end,
+  },
+
   ---------------------------------------
   -- Override plugin definition options
   ---------------------------------------

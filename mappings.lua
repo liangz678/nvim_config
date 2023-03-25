@@ -45,6 +45,16 @@ M.hop = {
   },
 }
 
+M.flutter = {
+  plugin = true,
+  n = {
+    ["<leader><C-P>"] = {
+      function ()
+        require('telescope').extensions.flutter.commands()
+      end
+    }
+  },
+}
 -- more keybinds!
 
 return M
