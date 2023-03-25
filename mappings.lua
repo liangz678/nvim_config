@@ -49,10 +49,19 @@ M.flutter = {
   plugin = true,
   n = {
     ["<leader><C-P>"] = {
-      function ()
-        require('telescope').extensions.flutter.commands()
-      end
-    }
+      function()
+        require("telescope").extensions.flutter.commands()
+      end,
+    },
+    ["<leader>fm"] = {
+      function()
+        if vim.bo.filetype == "dart" then
+          -- os.execute "dart format %"
+        end
+        vim.lsp.buf.format { async = true }
+      end,
+      "lsp formatting",
+    },
   },
 }
 -- more keybinds!

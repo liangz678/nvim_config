@@ -177,6 +177,13 @@ local plugins = {
     end,
   },
 
+  {
+    "dart-lang/dart-vim-plugin",
+    lazy = false,
+    config = function()
+      vim.g.dart_format_on_save = 1
+    end,
+  },
   ---------------------------------------
   -- Override plugin definition options
   ---------------------------------------
