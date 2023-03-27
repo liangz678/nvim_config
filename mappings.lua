@@ -66,4 +66,27 @@ M.flutter = {
 }
 -- more keybinds!
 
+M.lsconfig = {
+  n = {
+    ["<leader>fdo"] = {
+      function()
+        vim.diagnostic.open_float()
+      end,
+      "floating diagnostic",
+    },
+    ["<leader>fds"] = {
+      function()
+        vim.diagnostic.show()
+      end,
+      "floating diagnostic",
+    },
+    ["<leader>fdh"] = {
+      function()
+        vim.diagnostic.hide()
+      end,
+      "floating diagnostic",
+    },
+  },
+}
+
 return M
