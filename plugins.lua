@@ -160,7 +160,7 @@ local plugins = {
     "p00f/clangd_extensions.nvim",
     lazy = false,
     config = function()
-      require "custom.configs.clangd_extensions"
+      -- require "custom.configs.clangd_extensions"
     end,
   },
 

@@ -32,10 +32,10 @@ M.capabilities.textDocument.completion.completionItem = {
 
 require("clangd_extensions").setup {
   server = {
-    require("lspconfig").clangd.setup {
-      on_attach = M.on_attach,
-      capabilities = M.capabilities,
-    },
+    -- require("lspconfig").clangd.setup {
+    --   on_attach = M.on_attach,
+    --   capabilities = M.capabilities,
+    -- },
   },
   extensions = {
     autoSetHints = true,
